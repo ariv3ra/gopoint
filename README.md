@@ -12,10 +12,13 @@ Install the [napping](https://github.com/jmcvetta/napping) go [package](https://
 Create a new file called:`pio-creds.json`
 
 Add the following text to this file & replace the <> values with your information
+
 ```
 {
+	"baseurl:"https://api.point.io/v2",
 	"email":"<your point.io email>",
 	"password":"<your password>",
 	"apikey":"<your apikey/appID>"
 }
+
 ```
