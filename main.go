@@ -9,7 +9,7 @@ import (
 
 func main() {
 
-	fmt.Println("Starting the Program ")
+	fmt.Println("Starting the Program")
 
 	// Create instance of new User
 	var usr = users.User{}

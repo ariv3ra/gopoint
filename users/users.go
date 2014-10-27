@@ -14,8 +14,7 @@ type User struct {
 	APIkey   string
 }
 
-type result struct {
-}
+type result struct{}
 
 func (u User) Authenticate(baseurl, email, password, apikey string) string {
 	return ""

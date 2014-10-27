@@ -25,3 +25,7 @@ _testmain.go
 
 # Personal Project Specific
 pio-creds.json
+
+
+# Hide OSX Files
+.DS_Store
