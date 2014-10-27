@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	// "github.com/jmcvetta/napping"
 	"github.com/ariv3ra/gopoint/users"
 	"os"
 )
