@@ -1,7 +1,6 @@
 package users
 
 import (
-	// "encoding/json"
 	"fmt"
 	"github.com/jmcvetta/napping"
 )
@@ -17,6 +16,7 @@ type User struct {
 type result struct{}
 
 func (u User) Authenticate(baseurl, email, password, apikey string) string {
+	//
 	return ""
 }
 
