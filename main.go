@@ -7,11 +7,16 @@ import (
 	"os"
 )
 
+
+// app level sessionKey
+
+var sessionKey string = ""
+
 func main() {
 
 	fmt.Println("Starting the Program")
 
-	// Create instance of new User
+	// Create instance of new User to hold the cred values from the pio-creds.json
 	var usr = users.User{}
 
 	// Open the creds file
@@ -27,8 +32,11 @@ func main() {
 	}
 
 	user := users.User{}
-	sk := user.GetSessionKey(usr.BaseURL, usr.Email, usr.Password, usr.APIkey)
-	// fmt.Println("This is the returned json from the point.io api " + sk)
-	msg := fmt.Sprintf("Auth for user: %s \nSession Key: %s", usr.Email, sk)
+	sk, fname, lname := user.GetSessionKey(usr.BaseURL, usr.Email, usr.Password, usr.APIkey)
+
+	// Assign the sessionkey to the global variable
+	sessionKey = sk
+
+	msg := fmt.Sprintf("Auth for user: %s \nSession Key: %s\nFname: %s\nLName: %s", usr.Email, sk, fname, lname)
 	fmt.Println(msg)
 }
