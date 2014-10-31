@@ -15,7 +15,7 @@ Add the following text to this file & replace the <> values with your informatio
 
 ```
 {
-	"baseurl:"https://api.point.io/v2",
+	"baseurl":"https://api.point.io/v2",
 	"email":"<your point.io email>",
 	"password":"<your password>",
 	"apikey":"<your apikey/appID>"
