@@ -10,7 +10,7 @@ import (
 
 // app level sessionKey
 
-var sessionKey string = ""
+var sessionKey string
 
 func main() {
 
