@@ -15,11 +15,6 @@ type User struct {
 
 type result struct{}
 
-func (u User) Authenticate(baseurl, email, password, apikey string) string {
-	//   TODO Fill this out later maybe
-	return ""
-}
-
 func (u User) GetSessionKey(baseurl, email, password, apiKey string) (string, string, string) {
 	// Here we request the point.io sesionkey
 
