@@ -1,34 +1,28 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/ariv3ra/gopoint/users"
-	"os"
+	"github.com/ariv3ra/gopoint/utils"
 )
+
+var baseURL, email, password, apikey, sessionKey string
+var util = utils.Utils{}
 
 func main() {
 
-	fmt.Println("Starting the Program ")
+	fmt.Println("Starting the Program")
 
-	// Create instance of new User
+	// Create instance of new User to hold the cred values from the pio-creds.json
 	var usr = users.User{}
 
-	// Open the creds file
-	configFile, err := os.Open("pio-creds.json")
-	defer configFile.Close()
-	if err != nil {
-		fmt.Println("opening config file", err.Error())
-	}
+	baseURL, email, password, apikey = util.GetLoginCreds("pio-creds.json")
 
-	jsonParser := json.NewDecoder(configFile)
-	if err = jsonParser.Decode(&usr); err != nil {
-		fmt.Println("parsing config file", err.Error())
-	}
+	sk, fname, lname := usr.GetSessionKey(baseURL, email, password, apikey)
 
-	user := users.User{}
-	sk := user.GetSessionKey(usr.BaseURL, usr.Email, usr.Password, usr.APIkey)
-	// fmt.Println("This is the returned json from the point.io api " + sk)
-	msg := fmt.Sprintf("Auth for user: %s \nSession Key: %s", usr.Email, sk)
+	// Assign the sessionkey to the global variable
+	sessionKey = sk
+
+	msg := fmt.Sprintf("Auth for user: %s \nSession Key: %s\nFname: %s\nLName: %s", email, sk, fname, lname)
 	fmt.Println(msg)
 }

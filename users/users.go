@@ -1,7 +1,6 @@
 package users
 
 import (
-	// "encoding/json"
 	"fmt"
 	"github.com/jmcvetta/napping"
 )
@@ -14,14 +13,14 @@ type User struct {
 	APIkey   string
 }
 
-type result struct {
-}
+type result struct{}
 
 func (u User) Authenticate(baseurl, email, password, apikey string) string {
+	//   TODO Fill this out later maybe
 	return ""
 }
 
-func (u User) GetSessionKey(baseurl, email, password, apiKey string) string {
+func (u User) GetSessionKey(baseurl, email, password, apiKey string) (string, string, string) {
 	// Here we request the point.io sesionkey
 
 	// SessionKey Variable
@@ -67,5 +66,5 @@ func (u User) GetSessionKey(baseurl, email, password, apiKey string) string {
 			sessionKey = res.RESULT.SESSIONKEY
 		}
 	}
-	return sessionKey
+	return sessionKey, res.RESULT.FNAME, res.RESULT.LNAME
 }
