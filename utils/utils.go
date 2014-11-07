@@ -7,11 +7,10 @@ import (
 	"os"
 )
 
-type Utils struct{
-
+type Utils struct {
 }
 
-func (u Utils) GetBaseURL(file string) string{
+func (u Utils) GetLoginCreds(file string) (string, string, string, string) {
 
 	var usr = users.User{}
 
@@ -27,6 +26,6 @@ func (u Utils) GetBaseURL(file string) string{
 		fmt.Println("parsing config file", err.Error())
 	}
 
-	return usr.BaseURL
-	
+	return usr.BaseURL, usr.Email, usr.Password, usr.APIkey
+
 }
